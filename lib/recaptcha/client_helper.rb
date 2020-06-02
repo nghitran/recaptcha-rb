@@ -49,7 +49,7 @@ module Recaptcha
 
     # Invisible reCAPTCHA implementation
     def invisible_recaptcha_tags(options = {})
-      options = {callback: 'invisibleRecaptchaSubmit'}.merge options
+      options = {callback: 'invisibleRecaptchaSubmit', ui: :button}.merge options
       text = options.delete(:text)
       html, tag_attributes = Recaptcha::ClientHelper.recaptcha_components(options)
       html << recaptcha_default_callback if recaptcha_default_callback_required?(options)
